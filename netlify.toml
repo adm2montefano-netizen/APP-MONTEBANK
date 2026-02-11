@@ -1,10 +1,9 @@
 [build]
   publish = "."
-  command = "echo 'Construindo ambiente Montbank Elite...'"
+  command = "npm run build"
 
 [build.environment]
   NODE_VERSION = "20.18.0"
-  NPM_FLAGS = "--version"
 
 [[redirects]]
   from = "/*"
