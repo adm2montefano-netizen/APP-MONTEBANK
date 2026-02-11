@@ -1,0 +1,12 @@
+[build]
+  publish = "."
+  command = "echo 'Construindo ambiente Montbank Elite...'"
+
+[build.environment]
+  NODE_VERSION = "20.18.0"
+  NPM_FLAGS = "--version"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
