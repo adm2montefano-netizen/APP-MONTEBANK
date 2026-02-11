@@ -6,8 +6,8 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "build": "echo 'Preparando Montbank para Produção...'",
-    "start": "echo 'Iniciando servidor...'"
+    "build": "true",
+    "start": "true"
   },
   "dependencies": {
     "react": "^19.2.4",
