@@ -2,11 +2,15 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <title>Montbank - Elite Banking</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+      :root {
+        --safe-area-top: env(safe-area-inset-top);
+        --safe-area-bottom: env(safe-area-inset-bottom);
+      }
       body {
         font-family: 'Inter', sans-serif;
         background-color: #FFFFFF;
@@ -14,37 +18,35 @@
         margin: 0;
         overflow-x: hidden;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         user-select: none;
         -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
       }
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-      .perspective-1000 {
-        perspective: 1000px;
-      }
-      .backface-hidden {
-        backface-visibility: hidden;
-      }
-      .preserve-3d {
-        transform-style: preserve-3d;
-      }
-      .rotate-y-180 {
-        transform: rotateY(180deg);
-      }
-      .glass-card {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(241, 245, 249, 0.5);
-      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      
+      .perspective-1000 { perspective: 1000px; }
+      .backface-hidden { backface-visibility: hidden; }
+      .preserve-3d { transform-style: preserve-3d; }
+      .rotate-y-180 { transform: rotateY(180deg); }
+      
       .bottom-nav-blur {
         background: rgba(255, 255, 255, 0.85);
         backdrop-filter: saturate(180%) blur(20px);
+        padding-bottom: calc(0.75rem + var(--safe-area-bottom));
       }
+
+      /* Animações Premium */
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+      }
+      .animate-float { animation: float 6s ease-in-out infinite; }
+      
+      /* Ajuste de altura para mobile browsers */
+      .h-screen-dynamic { height: 100dvh; }
     </style>
   <script type="importmap">
 {
@@ -61,7 +63,6 @@
 </head>
   <body>
     <div id="root"></div>
-    <!-- Carregamento do entrypoint da aplicação -->
     <script type="module" src="index.tsx"></script>
   </body>
 </html>
